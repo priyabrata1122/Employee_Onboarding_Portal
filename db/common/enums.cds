@@ -49,3 +49,11 @@ type TaskStatus       : String enum {
     Completed;
     Cancelled;
 }
+
+type NotificationType : String enum {
+    Approval;
+    Asset;
+    Document;
+    Task;
+    General;
+}

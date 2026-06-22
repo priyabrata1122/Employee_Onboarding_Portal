@@ -6,6 +6,7 @@ using {
 } from '../common/enums';
 
 using {onboarding.master.Employees} from '../master/Employee';
+using {onboarding.workflow.ApprovalHistories} from './ApprovalHistory';
 
 
 namespace onboarding.workflow;
@@ -25,4 +26,7 @@ entity Approvals : common.AuditInfo {
         comments   : String(500);
 
         approvedAt : Timestamp;
+
+        history    : Composition of many ApprovalHistories
+                         on history.approval = $self;
 }

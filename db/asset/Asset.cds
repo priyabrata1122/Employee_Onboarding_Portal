@@ -2,6 +2,7 @@ using onboarding.common as common from '../common/aspects';
 
 using {onboarding.common.AssetStatus} from '../common/enums';
 using {onboarding.asset.AssetAllocations} from './AssetAllocation';
+using {onboarding.asset.AssetMaintenances} from './AssetMaintenance';
 
 namespace onboarding.asset;
 
@@ -23,4 +24,7 @@ entity Assets : common.AuditInfo {
 
         allocations  : Composition of many AssetAllocations
                            on allocations.asset = $self;
+
+        maintenances : Composition of many AssetMaintenances
+                           on maintenances.asset = $self;
 }
